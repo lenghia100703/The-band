@@ -13,25 +13,29 @@
     <div id = "main">
         <div id = "header">
             <ol id="nav">
-                <li><a href = "#" class="js-conga">HOME</a></li>
-                <li><a href = "#band" class="js-conga">BAND</a></li>
-                <li><a href = "#tour" class="js-conga">TOUR</a></li>
-                <li><a href = "#contact" class="js-conga">CONTACT</a></li>
+                <li><a href = "#">HOME</a></li>
+                <li><a href = "#band">BAND</a></li>
+                <li><a href = "#tour">TOUR</a></li>
+                <li><a href = "#contact">CONTACT</a></li>
                 <li>
-                    <a href = "">
+                    <a href = "#">
                         MORE
                         <i class = "nav-down ti-angle-down"></i>
                     </a>
                     <ol class="subnav">
-                        <li><a href = "#" class="js-conga">Merchandise</a></li>
-                        <li><a href = "#" class="js-conga">Extras</a></li>
-                        <li><a href = "#" class="js-conga">Media</a></li>
+                        <li><a href = "#">Merchandise</a></li>
+                        <li><a href = "#">Extras</a></li>
+                        <li><a href = "#">Media</a></li>
                     </ol>
                 </li>
             </ol>
 
             <div class = "search-button">
                     <a href = "" class="js-conga"><i class = "search-icon ti-search"></i></a>
+            </div>
+
+            <div id="js-mobile-menu" class="moblie-menu">
+                <i class="menu-icon ti-menu"></i>
             </div>
         </div>
 
@@ -159,7 +163,7 @@
                         </form>
                     </div>
                     <div class="contact-end">
-                        <input type="submit" value="SEND" class="submit-contact">
+                        <input type="submit" value="SEND" class="submit-contact s-full-width">
                     </div>
                    
                     
@@ -230,17 +234,27 @@
         const modal = document.querySelector('.js-modal')
         const modalclose = document.querySelector('.js-modal-close')
         const modalcontainer = document.querySelector('.js-modal-container')
-        const congas = document.querySelectorAll('.js-conga')
+       
+        var header = document.getElementById('header')
+        var mobileMenu = document.getElementById('js-mobile-menu')
+        var menuItems = document.querySelectorAll('#nav li a[href*="#"] ')
+        
         function showBuyTickets() {
             modal.classList.add('open')
         }
 
-        function closetab(){
-            modal.classList.remove('open')
+        mobileMenu.onclick = function(){
+            var isClosed = header.clientHeight === 46;
+            if (isClosed) {
+                header.style.height = 'auto';
+            }
+            else {
+                header.style.height = null;
+            }
         }
 
-        function congastt() {
-            alert("con gà Thủy Tiên");
+        function closetab(){
+            modal.classList.remove('open')
         }
 
 
@@ -248,8 +262,19 @@
             buyBtn.addEventListener('click', showBuyTickets)
         }
 
-        for (const conga of congas) {
-            conga.addEventListener('click', congastt)
+        for (var i = 0; i < menuItems.length; i++){
+            var menuItem = menuItems[i]
+            
+            menuItem.onclick = function(event){
+                var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav')
+                if (isParentMenu){
+                    event.preventDefault()
+                } 
+                else {
+                    header.style.height = null
+                }
+                
+            }
         }
 
         modalclose.addEventListener('click', closetab)

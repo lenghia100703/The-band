@@ -104,6 +104,7 @@ html {
     font-size: 12px;
 }
 
+#header .menu-icon,
 #header .search-icon{
     color:#fff;
     font-size: 16px;
@@ -111,19 +112,31 @@ html {
     padding:0 25px;
 }
 
+#header .moblie-menu,
 #header .search-button {
     float:right;
-    
+    position:absolute;
+    top: 0;
+    right: 0;
 }
 
-.search-button a{
+#header .moblie-menu,
+#header .search-button a{
     text-decoration: none;
 }
 
-.search-button:hover{
+#header .menu-icon:hover { 
+    color: #000;
+}
+#header .moblie-menu:hover,
+#header .search-button:hover{
     color: #000;
     background-color: #ccc;
-    height: 100%;
+    
+}
+
+#header .moblie-menu { 
+    display: none;
 }
 
 
@@ -156,9 +169,13 @@ html {
 #content .content-section{
     width: 800px;
     height:700px;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-top: 64px;
+    padding-left: 16px;
+    padding-right: 16px;
+
 }
 
 .content-section .section-heading{
@@ -458,6 +475,90 @@ html {
     color:#555454;
 
 }
+/* mobile */
+@media only screen and (max-width: 46.1875em){
+    #nav{
+        display: block;
+    }
+    #nav > li {
+        display:block;
+    }
+    #nav > li:first-child{
+        display: inline-block;
+    }
+    #header .search-button{
+        display: none;
+    }
+    #header {
+        overflow: hidden;
+    }
+    #header .moblie-menu { 
+        display:block;
+    }
+    #nav li a {
+        display: block;
+    }
+    #nav .subnav { 
+        position: initial;
+        background-color: #333;
+    }
+    #nav .subnav a {
+        color: #fff;
+        padding: 5px 50px;
+    }
+    #nav li {
+        display: initial;
+    }
+    #content .member-item {
+        width: 100%;
+        float: none;
+    }
+    #content .member .member-img {
+        width: 80%; 
+        height: 100%;
+    }
+    #content .tour-section {
+        margin-top: 1125px;
+        height: 2100px;
+    }
+    #footer {
+        margin-top: 88cm;
+    }
 
+    .place-body {
+        height: 220px;
+    }
+
+    .place-item {
+        width: 100%;
+        padding: 32px 8px;
+    }
+    #content .content-section {
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .col {
+        padding-top: 4px;
+    }
+    .col-second {
+        width: 100%;
+    }
+    .s-full-width {
+        width: 100% !important;
+    }
+    .contact-end {
+        float: none;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    .tour-section .list {
+        margin-bottom: 30px;
+    }
+}
+
+/* tablet */
+@media only screen and(min-width: 46.25em) and (max-width: 63.9375em){
+
+}
 
 
