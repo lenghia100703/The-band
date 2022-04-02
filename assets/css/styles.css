@@ -476,7 +476,7 @@ html {
 
 }
 /* mobile */
-@media only screen and (max-width: 46.1875em){
+@media only screen and (max-width: 599px){
     #nav{
         display: block;
     }
@@ -555,9 +555,18 @@ html {
         margin-bottom: 30px;
     }
 }
-
+@media only screen and(min-width: 600px) and (max-width: 767px){
+    /* #content .tour-section {
+        margin-top: 1490px;
+    } */
+}
+@media screen and (width: 540px){
+    #content .tour-section {
+        margin-top: 1400px;
+    }
+}
 /* tablet */
-@media only screen and(min-width: 46.25em) and (max-width: 63.9375em){
+@media only screen and(min-width: 768px) and (max-width: 1023px){
 
 }
 
